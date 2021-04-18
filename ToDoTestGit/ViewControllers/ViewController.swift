@@ -14,6 +14,8 @@ protocol CreateNewTaskViewController {
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var users = User.getUsers()
     
     
@@ -50,10 +52,15 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
         print("Новые значения массива")
         for user in users {
             print(user.name)
-
+            if user.task != nil {
+                for task in user.task! {
+                    print(task.name)
+                }
+            }
         }
     }
     
@@ -70,9 +77,6 @@ extension ViewController: CreateNewTaskViewController {
         print(a)
         print()
         print()
-        //append(Task: task)
-        
-        
         
         users[2] = User(
             name: "user_3",
@@ -80,14 +84,30 @@ extension ViewController: CreateNewTaskViewController {
             task: a
         )
         
-        
         for user in users {
             let currentTask = user.task
             print(currentTask!)
         }
     }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        users[2].task?.count ?? 0
+    }
     
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        let user = users[2]
+        
+        content.text = user.task?[indexPath.row].name
+        
+            //users[2].task[indexPath]
+        cell.contentConfiguration = content
+        
+        return cell
+    }
     
     
 }

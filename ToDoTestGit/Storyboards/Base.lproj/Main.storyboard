@@ -29,6 +29,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="YBa-fv-wfb"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -47,6 +50,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="UWL-1N-2l5" id="V5i-n9-I31"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,6 +84,9 @@
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WK3-5F-qdK">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="statusSwitched" destination="Yc8-j7-H6t" eventType="valueChanged" id="scX-LV-ekQ"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Готово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yeu-mS-ZnN">
                                                 <rect key="frame" x="85" y="0.0" width="297" height="31"/>
@@ -103,6 +112,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ati-6g-Dbf">
                                                 <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="statusImortant:" destination="Yc8-j7-H6t" eventType="valueChanged" id="uXH-ar-QfJ"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -117,6 +129,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2lH-ag-Dt5">
                                                 <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="statusImortant:" destination="Yc8-j7-H6t" eventType="valueChanged" id="DgR-b8-7Rf"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -131,6 +146,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="usq-f6-OmG">
                                                 <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="statusImortant:" destination="Yc8-j7-H6t" eventType="valueChanged" id="aIb-HB-9cY"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -158,6 +176,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Создать" id="NAf-ft-ogI"/>
+                    <connections>
+                        <outlet property="descriptionTaskTF" destination="hAH-Av-hig" id="x0X-CR-ZWW"/>
+                        <outlet property="emergencyImportant" destination="usq-f6-OmG" id="udn-vC-sDO"/>
+                        <outlet property="lowImportant" destination="Ati-6g-Dbf" id="2Tr-5Y-hsB"/>
+                        <outlet property="nameTaskTF" destination="i7t-dk-oXN" id="0y9-QN-3HP"/>
+                        <outlet property="normalImportant" destination="2lH-ag-Dt5" id="tg8-lA-Gkt"/>
+                        <outlet property="status" destination="WK3-5F-qdK" id="1am-bj-RUX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXu-i0-2Z4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
